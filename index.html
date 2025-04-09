@@ -3,118 +3,338 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Manieswari Murugan | Portfolio</title>
-  <script src="https://unpkg.com/scrollreveal"></script>
+<title>My Portfolio</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .fade-enter {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    .fade-enter-active {
+      opacity: 1;
+      transform: scale(1);
+      transition: all 0.5s ease-in-out;
+    }
+    .fade-exit {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .fade-exit-active {
+      opacity: 0;
+      transform: scale(0.95);
+      transition: all 0.3s ease-in-out;
+    }
+    .marquee {
+      display: flex;
+      animation: scroll 20s linear infinite;
+    }
+    @keyframes scroll {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+    .typing-text::after {
+      content: '|';
+      animation: blink 1s infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    .glow:hover {
+      box-shadow: 0 0 15px #38bdf8, 0 0 30px #0ea5e9;
+    }
+  .blinking-cursor { font-weight: bold; animation: blink 1s step-end infinite; }
+@keyframes blink { from, to { opacity: 0 } 50% { opacity: 1 } }
+</style>
 </head>
-<body class="bg-white text-gray-800">
+<body class="bg-blue-50 text-gray-800 dark:bg-blue-950 dark:text-white transition-all duration-500 ease-in-out">
+  <div id="page-transition" class="fixed inset-0 bg-white dark:bg-blue-950 z-[9999] pointer-events-none transition-opacity duration-700 opacity-0"></div>
+
+  <!-- Floating Action Button -->
+  <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-6 right-6 bg-pink-500 hover:bg-pink-600 text-white p-4 rounded-full shadow-lg z-50 transition transform hover:scale-110">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Navigation Bar -->
+  <header class="bg-white dark:bg-blue-900 shadow-md sticky top-0 z-50 transition duration-300 ease-in-out">
+    <nav class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold flex items-center space-x-2">
+        <i class="fas fa-star text-blue-600 animate-bounce"></i>
+        <span>Manieswari Murugan</span>
+      </h1>
+      <ul class="flex space-x-6 text-sm">
+        <li><a href="#hero" class="hover:text-blue-400 transition-colors page-link">Home</a></li>
+        <li><a href="#about" class="hover:text-blue-400 transition-colors page-link">About</a></li>
+        <li><a href="#work" class="hover:text-blue-400 transition-colors page-link">Work</a></li>
+        <li><a href="#writing" class="hover:text-blue-400 transition-colors page-link">Writing</a></li>
+        <li><a href="#contact" class="hover:text-blue-400 transition-colors page-link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+ 
   <!-- Hero Section -->
-  <section id="hero" class="text-center py-20">
-    <h1 class="text-4xl font-bold mb-4">Hi, I'm Manieswari 👋</h1>
-    <p class="text-lg">Creative Coder | Writer | Explorer</p>
+  <section id="hero" class="text-center py-20 bg-gradient-to-r from-blue-400 to-blue-600 dark:from-blue-900 dark:to-blue-950 transition duration-500 ease-in-out">
+    <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_jtbfg2nb.json" background="transparent" speed="1" style="width: 220px; height: 220px; margin: auto" loop autoplay></lottie-player>
+
+    <h1 id="typewriter" class="text-4xl font-extrabold text-center mb-4"></h1>
+    <p class="text-xl typing-text">Full-Stack Developer | Voiceover Artist | Innovator<br>who creates useful and fun digital experiences. <i class="fas fa-laptop-code"></i> <i class="fas fa-microphone-alt"></i> <i class="fas fa-pencil-alt"></i></p>
+    <a href="#work" class="mt-6 inline-block px-6 py-2 bg-blue-700 text-white rounded-full hover:bg-blue-800 transition transform hover:scale-105">
+      View My Work <i class="fas fa-arrow-right ml-2"></i>
+      </a>
+    
   </section>
 
-  <!-- About Section -->
-  <section id="about" class="py-16 px-6 bg-gray-100">
-    <div class="about-content max-w-4xl mx-auto">
-      <h2 class="text-3xl font-semibold mb-4">About Me</h2>
-      <p>I’m Manies, a creative mind who loves building fun, useful digital experiences. From coding cool projects to voicing videos and crafting content, I bring ideas to life!</p>
+  <!-- Tech Stack Marquee -->
+  <section class="bg-blue-100 dark:bg-blue-800 py-6 overflow-hidden">
+    <div class="marquee space-x-12 items-center">
+      <i class="fab fa-html5 text-3xl text-red-500"></i>
+      <i class="fab fa-css3-alt text-3xl text-blue-500"></i>
+      <i class="fab fa-js text-3xl text-yellow-400"></i>
+      <i class="fab fa-react text-3xl text-cyan-400"></i>
+      <i class="fab fa-node text-3xl text-green-600"></i>
+      <i class="fab fa-github text-3xl text-black"></i>
+      <i class="fas fa-database text-3xl text-indigo-600"></i>
+      <i class="fas fa-code text-3xl text-pink-500"></i>
     </div>
   </section>
 
-  <!-- Projects Section -->
-  <section id="work" class="py-16 px-6">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-3xl font-semibold mb-8">Projects</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="project-card p-4 border rounded-xl shadow-sm">
-          <h3 class="text-xl font-bold">AI Blog Generator</h3>
-          <a href="projects/ai-blog-generator.html" class="text-blue-700 underline">View Project</a>
-        </div>
-        <div class="project-card p-4 border rounded-xl shadow-sm">
-          <h3 class="text-xl font-bold">FLAMES Game</h3>
-          <a href="projects/flames-game.html" class="text-blue-700 underline">Play Game</a>
-        </div>
-        <div class="project-card p-4 border rounded-xl shadow-sm">
-          <h3 class="text-xl font-bold">Travel Blog</h3>
-          <a href="projects/travel-blog.html" class="text-blue-700 underline">View Project</a>
-        </div>
-        <div class="project-card p-4 border rounded-xl shadow-sm">
-          <h3 class="text-xl font-bold">Task Manager App</h3>
-          <a href="projects/task-manager.html" class="text-blue-700 underline">View App</a>
-        </div>
-        <div class="project-card p-4 border rounded-xl shadow-sm">
-          <h3 class="text-xl font-bold">Document Creator</h3>
-          <a href="projects/document-creator.html" class="text-blue-700 underline">Try It</a>
-        </div>
-        <div class="project-card p-4 border rounded-xl shadow-sm">
-          <h3 class="text-xl font-bold">Resume Builder</h3>
-          <a href="projects/resume-builder.html" class="text-blue-700 underline">Build Resume</a>
-        </div>
-        <div class="project-card p-4 border rounded-xl shadow-sm">
-          <h3 class="text-xl font-bold">Educational App</h3>
-          <a href="projects/educational-app.html" class="text-blue-700 underline">Try App</a>
-        </div>
-        <div class="project-card p-4 border rounded-xl shadow-sm">
-          <h3 class="text-xl font-bold">Typing Tutor</h3>
-          <a href="projects/typing-tutor.html" class="text-blue-700 underline">Start Typing</a>
-        </div>
-        <div class="project-card p-4 border rounded-xl shadow-sm">
-          <h3 class="text-xl font-bold">Quiz Game</h3>
-          <a href="projects/quiz-game.html" class="text-blue-700 underline">Take Quiz</a>
-        </div>
-        <div class="project-card p-4 border rounded-xl shadow-sm">
-          <h3 class="text-xl font-bold">Weather App</h3>
-          <a href="projects/weather-app.html" class="text-blue-700 underline">Check Weather</a>
-        </div>
-        <div class="project-card p-4 border rounded-xl shadow-sm">
-          <h3 class="text-xl font-bold">Notes App</h3>
-          <a href="projects/notes-app.html" class="text-blue-700 underline">Write Notes</a>
-        </div>
-        <div class="project-card p-4 border rounded-xl shadow-sm">
-          <h3 class="text-xl font-bold">Code Snippet Manager</h3>
-          <a href="projects/code-snippet-manager.html" class="text-blue-700 underline">Try Tool</a>
-        </div>
-        <div class="project-card p-4 border rounded-xl shadow-sm">
-          <h3 class="text-xl font-bold">Mivaa Site</h3>
-          <a href="https://sites.google.com/view/www-mivaa-com/home" class="text-blue-700 underline" target="_blank">Visit Mivaa</a>
-        </div>
+  <!-- About Me Section -->
+  <section id="about" class="max-w-5xl mx-auto px-4 py-16">
+    <h2 class="text-3xl font-bold mb-4">About Me <i class="fas fa-user-graduate text-blue-500"></i></h2>
+    <p class="mb-6">I'm a creative web developer with a background in computer science. I enjoy solving problems and turning ideas into reality through code. <i class="fas fa-lightbulb text-yellow-400"></i></p>
+    <ul class="space-y-2">
+      <li><strong>Education:</strong> Completed 12th recently with main stream as PCM with CS 🎓</li>
+      <li><strong>Skills:</strong> HTML, CSS, JavaScript, Tailwind CSS, React, Next.js, OpenAI API, UI Design, Voiceovers 🛠️</li>
+      <li><strong>Hobbies:</strong> Writing ✍️, Drawing 🎨, Coding 💻</li>
+      <li><strong>Goals:</strong> Become a full-stack developer and build impactful tools 🚀</li>
+    </ul>
+    <!-- Resume Download Button -->
+<div class="text-center mt-8">
+  <a href="/downloads/Manieswari_Murugan_Resume.pdf" 
+     class="inline-flex items-center px-6 py-2 bg-pink-500 text-white rounded-full font-semibold hover:bg-pink-600 hover:shadow-lg transition-all duration-300 ease-in-out glow">
+    <i class="fas fa-file-download mr-2"></i> Download Resume
+  </a>
+</div>
+
+  </section>
+ <!-- Work Experience Section -->
+<section id="work" class="bg-white dark:bg-blue-900 py-16">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2 class="text-3xl font-bold mb-10 text-center">My Work</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Original Projects -->
+     
+        <div class="relative bg-blue-100 dark:bg-blue-800 p-6 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300 glow">
+        <h3 class="text-xl font-semibold mb-2">Animated Portfolio <i class="fas fa-code text-green-400 animate-spin"></i></h3>
+        <p class="mb-2">This beautiful animated and interactive portfolio you’re looking at right now!</p>
+        <a href="#" class="text-blue-700 underline">Explore</a>
+      </div>
+
+      <!-- Added Projects -->
+        <div class="relative bg-blue-100 dark:bg-blue-800 p-6 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300 glow">
+        <h3 class="text-xl font-semibold mb-2">Resume Builder Website <i class="fas fa-user-tie text-blue-600 animate-pulse"></i></h3>
+        <p class="mb-2">Build professional resumes using templates.</p>
+        <a href="/projects/resume-builder.html" class="text-blue-700 underline">View Project</a>
+      </div>
+
+  <div class="relative bg-blue-100 dark:bg-blue-800 p-6 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300 glow">
+        <h3 class="text-xl font-semibold mb-2">Karka Kasadara Android App <i class="fas fa-mobile-alt text-blue-600 animate-bounce"></i></h3>
+        <p class="mb-2">Tamil learning app with voiceovers.</p>
+        <a href="/downloads/karka_kasadara.apk" class="text-blue-700 underline">Download App</a>
+      </div>
+
+  <div class="relative bg-blue-100 dark:bg-blue-800 p-6 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300 glow">
+        <h3 class="text-xl font-semibold mb-2">Medical Pill Finder App (MedFY) <i class="fas fa-mobile-alt text-blue-600 animate-bounce"></i></h3>
+        <p class="mb-2">App that helps locate and understand medical pills.</p>
+        <span class="text-gray-400">Coming Soon</span>
+      </div>
+  <div class="relative bg-blue-100 dark:bg-blue-800 p-6 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300 glow">
+        <h3 class="text-xl font-semibold mb-2">Educational Voiceover - Photosynthesis <i class="fas fa-volume-up text-green-600 animate-pulse"></i></h3>
+        <p class="mb-2">Tamil voiceover explaining photosynthesis.</p>
+        <a href="/downloads/photosynthesis_voiceover.mp3" class="text-blue-700 underline">Download Voiceover</a>
+      </div>
+     <div class="relative bg-blue-100 dark:bg-blue-800 p-6 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300 glow">
+        <h3 class="text-xl font-semibold mb-2">Shyan App <i class="fas fa-mobile-alt text-blue-600 animate-bounce"></i>
+</h3>
+        <p class="mb-2">An educational app exploring Tamil literature with interactive audio and quizzes.</p>
+        <a href="#" class="text-blue-700 underline">View Project</a>
+      </div>
+
+  <div class="relative bg-blue-100 dark:bg-blue-800 p-6 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300 glow">
+        <h3 class="text-xl font-semibold mb-2">AI Blog Generator <i class="fas fa-pen-nib text-blue-600 animate-pulse"></i></h3>
+        <p class="mb-2">Generate articles using OpenAI GPT.</p>
+        <a href="/projects/ai-blog-generator.html" class="text-blue-700 underline">View Project</a>
+      </div>
+
+  <div class="relative bg-blue-100 dark:bg-blue-800 p-6 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300 glow">
+        <h3 class="text-xl font-semibold mb-2">FLAMES Game <i class="fas fa-fire text-orange-500 animate-bounce"></i></h3>
+        <p class="mb-2">Fun name-based relationship calculator.</p>
+        <a href="/projects/flames-game.html" class="text-blue-700 underline">Play Game</a>
+      </div>
+  <div class="relative bg-blue-100 dark:bg-blue-800 p-6 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300 glow">
+        <h3 class="text-xl font-semibold mb-2">Travel Blog Gallery<i class="fas fa-pen-nib text-blue-600 animate-pulse"></i></h3>
+        <p class="mb-2">Blog with image carousel and filters.</p>
+        <a href="/projects/travel-blog.html" class="text-blue-700 underline">View Project</a>
+      </div>
+
+  <div class="relative bg-blue-100 dark:bg-blue-800 p-6 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300 glow">
+        <h3 class="text-xl font-semibold mb-2">Task Manager App <i class="fas fa-mobile-alt text-blue-600 animate-bounce"></i></h3>
+        <p class="mb-2">Simple task manager with local storage.</p>
+        <a href="/projects/task-manager.html" class="text-blue-700 underline">View App</a>
+      </div>
+
+        <div class="relative bg-blue-100 dark:bg-blue-800 p-6 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300 glow">
+        <h3 class="text-xl font-semibold mb-2">Document Creator <i class="fas fa-keyboard text-blue-600 animate-pulse"></i>
+</h3>
+        <p class="mb-2">Simulate writing and saving docs online.</p>
+        <a href="/projects/document-creator.html" class="text-blue-700 underline">Try It</a>
+      </div>
+  <div class="relative bg-blue-100 dark:bg-blue-800 p-6 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300 glow">
+        <h3 class="text-xl font-semibold mb-2">Mivaa Site<i class="fas fa-globe text-blue-600 animate-pulse"></i>
+</h3>
+        <p class="mb-2">A personal portfolio and blog-style site built using Google Sites.</p>
+        <a href="https://sites.google.com/view/www-mivaa-com/home" class="text-blue-700 underline" target="_blank">Visit Site</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+ 
+  <!-- Writing Section Placeholder -->
+  <section id="writing" class="max-w-5xl mx-auto px-4 py-16">
+    <h2 class="text-3xl font-bold mb-4">Writing <i class="fas fa-pen-nib text-pink-400"></i></h2>
+     <div class="space-y-6">
+      <div class="bg-blue-100 dark:bg-blue-800 p-4 rounded-lg shadow">
+        <h3 class="text-xl font-semibold">Legal Document for Honeywell <i class="fas fa-scroll text-blue-700"></i></h3>
+        <p class="mt-2">Formal legal document writing project.</p>
+        <a href="https://docs.google.com/document/d/1n8nPCZukEnvRK-ab5C3GloirDzaH-a82Q95MqRyYS1A" class="text-blue-600 underline" target="_blank">View Document</a>
+      </div>
+      <div class="bg-blue-100 dark:bg-blue-800 p-4 rounded-lg shadow">
+        <h3 class="text-xl font-semibold">Creative Writing Sample <i class="fas fa-pen-nib text-pink-500"></i></h3>
+        <p class="mt-2">Coming soon: collection of short stories and essays.</p>
       </div>
     </div>
   </section>
+  <!-- Achievements Section -->
+   
+<section id="achievements" class="max-w-5xl mx-auto px-4 py-16">
+  <h2 class="text-3xl font-bold mb-6">Achievements<i class="fas fa-trophy text-yellow-500 animate-bounce"></i></h2>
+  <ul class="list-disc list-inside space-y-3 text-lg">
+    <li>🌟 <strong>Founder</strong> of MedFY an Medical Pill Finder App</li>
+    <li>🚀<strong>Winner </strong> - NDRF National Space Challenge</li>
+    <li>👩‍💼<strong>ShePreneur</strong>- 2024 </li>
+    <li><strong>🏆 Winner</strong>- Tamil Nadu State Level Hackathon </li>
+    <li><strong>🥇 Winner</strong> - District Level Idea Pitching Contest </li>
+    <li><strong>🏅 Top 10</strong> - Naional level ATL Marathon 24-25 </li>
+    <li><strong>🥇 Winner</strong> - Idea Contest - A Mega Project Expo </li>
+    <li><strong>🔬 Title Holder</strong> - நானும் விஞ்ஞானி தான் </li>
+     <li><strong>🥈 Runner </strong>- Innova TN - State Level ATL Innovation Challenge</li>
+     <li><strong>🎤 இலக்கிய செம்மல் </strong>- Awardee For Tamil Elocution </li>
+    <li>✨ And many more...</li>
 
-  <!-- Contact Section -->
-  <section id="contact" class="py-16 px-6 bg-gray-100">
-    <div class="max-w-3xl mx-auto text-center">
-      <h2 class="text-3xl font-semibold mb-4">Let's Connect!</h2>
-      <p>Feel free to reach out for collaboration, opportunities, or just a good chat about creativity.</p>
+  </ul>
+</section>
+
+  <!-- Contact Section with 3D Lottie Animation -->
+  <section id="contact" class="max-w-3xl mx-auto px-4 py-16">
+    <h2 class="text-3xl font-bold mb-4">Contact Me <i class="fas fa-envelope text-pink-500"></i></h2>
+    <div class="flex flex-col md:flex-row items-center md:space-x-8">
+      <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_gjmecwii.json" background="transparent" speed="1" style="width: 240px; height: 240px;" loop autoplay></lottie-player>
+      <form id="contact-form" action="https://formspree.io/f/xrbpogaz" method="POST" class="space-y-4 w-full mt-6 md:mt-0">
+        <input type="text" name="name" required placeholder="Your Name" class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500" />
+        <input type="email" name="email" required placeholder="Your Email" class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500" />
+        <textarea name="message" required placeholder="Your Message" class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500"></textarea>
+        <button type="submit" class="bg-pink-500 text-white px-6 py-2 rounded-lg hover:bg-pink-600 transition">Send <i class="fas fa-paper-plane"></i></button>
+      </form>
     </div>
+    <div id="toast" class="hidden fixed bottom-4 right-4 bg-green-500 text-white px-4 py-2 rounded shadow-md transform scale-90 transition-transform">Message sent successfully!</div>
   </section>
 
-  <!-- ScrollReveal Setup -->
+  <style>
+    @keyframes fade-in {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in {
+      animation: fade-in 1s ease-out forwards;
+    }
+    .delay-200 {
+      animation-delay: 0.2s;
+    }
+  </style>
+
+  <!-- Scripts -->
   <script>
-    ScrollReveal().reveal('section', {
-      origin: 'bottom',
-      distance: '40px',
-      duration: 800,
-      delay: 100,
-      easing: 'ease-in-out',
-      reset: false
-    });
+    const texts = [
+  "Hi! I'm Manies❤️", 
+  "வணக்கம்! நான் மணிஸ்❤️",
+  "हाय! मैं मैनीस हूं❤️", 
+  "Bonjour! Moi c’est Manies❤️",
+  "안녕하세요! 저는 매니즈입니다❤️",
+  "「こんにちは！私はManiesです❤️」",
+  "Hola! Sóc Manies",
+      "Hi! I'm Manies❤️",  
+  "வணக்கம்! நான் மணிஸ்❤️",
+  "हाय! मैं मैनीस हूं❤️", 
+  "Bonjour! Moi c’est Manies❤️",
+  "안녕하세요! 저는 매니즈입니다❤️",
+  "「こんにちは！私はManiesです❤️」",
+  "Hola! Sóc Manies❤️",
+  "ਸਤ ਸ੍ਰੀ ਅਕਾਲ! ਮੈਂ ਮੈਨੀਸ ਹਾਂ❤️", // Punjabi
+  "ഹായ്! ഞാൻ മാനിസ് ആണ്❤️",        // Malayalam
+  "నమస్తే! నేను మేనిస్‌ను❤️",        // Telugu
+  "ನಮಸ್ಕಾರ! ನಾನು ಮ್ಯಾನಿಸ್❤️",       // Kannada
+  "নমস্কার! আমি ম্যানিস❤️",         // Bengali
+  "ନମସ୍କାର! ମୁଁ ମାନିସ୍❤️",         // Odia
+  "नमस्कार! मी मॅनीस आहे❤️",        // Marathi
+  "હાય! હું માનિસ છું❤️",            // Gujarati
+  "ਹੈਲੋ! ਮੈਂ ਮੈਨਿਸ ਹਾਂ❤️",            // Punjabi (Gurmukhi alt
+];
 
-    ScrollReveal().reveal('.project-card', {
-      origin: 'right',
-      distance: '30px',
-      duration: 700,
-      interval: 100
-    });
+const typewriter = document.getElementById("typewriter");
+let index = 0;
+let charIndex = 0;
+let isDeleting = false;
 
-    ScrollReveal().reveal('.about-content', {
-      origin: 'left',
-      distance: '50px',
-      duration: 800,
-      delay: 150
-    });
+function type() {
+  const currentText = texts[index];
+  const visibleText = currentText.substring(0, charIndex);
+  typewriter.innerHTML = `${visibleText}<span class="blinking-cursor">|</span>`;
+
+  if (!isDeleting && charIndex < currentText.length) {
+    charIndex++;
+    setTimeout(type, 100);
+  } else if (isDeleting && charIndex > 0) {
+    charIndex--;
+    setTimeout(type, 50);
+  } else {
+    if (!isDeleting) {
+      isDeleting = true;
+      setTimeout(type, 1500);
+    } else {
+      isDeleting = false;
+      index = (index + 1) % texts.length;
+      setTimeout(type, 300);
+    }
+  }
+}
+
+type();
+    ScrollReveal().reveal('section', { delay: 200, distance: '50px', origin: 'bottom', interval: 200 });
+
   </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
